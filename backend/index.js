@@ -20,7 +20,7 @@ app.use(cookieParser());
 const corsOptions = {
     origin: [
         'http://localhost:5173', 
-        'https://job-da-ram9.vercel.app', 
+        'https://job-da.vercel.app/', 
         'https://job-mafqptpah-huuthai.vercel.app' ,
         'https://job-p40ajudt8-huuthai.vercel.app'  
 
