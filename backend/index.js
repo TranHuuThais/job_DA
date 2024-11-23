@@ -19,11 +19,13 @@ app.use(cookieParser());
 
 const corsOptions = {
     origin: [
-        'http://localhost:5173', // Local development
-        'https://job-aekx94gus-huuthai.vercel.app', // Frontend on Vercel
-        'https://job-mafqptpah-huuthai.vercel.app' // Other Vercel URL
+        'http://localhost:5173', 
+        'https://job-da-ram9.vercel.app', 
+        'https://job-mafqptpah-huuthai.vercel.app' ,
+        'https://job-p40ajudt8-huuthai.vercel.app'  
+
     ],
-    credentials: true, // Allow cookies
+    credentials: true, 
 };
 
 app.use(cors(corsOptions));
