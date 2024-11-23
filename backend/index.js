@@ -16,15 +16,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
 const corsOptions = {
     origin: [
-        'http://localhost:5173',
-        'https://job-mafqptpah-huuthai.vercel.app',
-        'https://job-da-huuthai.vercel.app/'
+        'http://localhost:5173', // Local development
+        'https://job-aekx94gus-huuthai.vercel.app', // Frontend on Vercel
+        'https://job-mafqptpah-huuthai.vercel.app' // Other Vercel URL
     ],
-    credentials: true,
+    credentials: true, // Allow cookies
 };
+
 app.use(cors(corsOptions));
+
 
 const PORT = process.env.PORT || 3000;
 
