@@ -17,16 +17,27 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:[
+    origin: [
         'http://localhost:5173',
-        'https://jobportal-yt-psi.vercel.app',
-        'https://jobportal-mrzmzn4f9-huuthai.vercel.app'
+        'https://job-mafqptpah-huuthai.vercel.app',
+        'https://job-da-huuthai.vercel.app/'
     ],
-    credentials:true
-}
-
+    credentials: true,
+};
 app.use(cors(corsOptions));
+
 const PORT = process.env.PORT || 3000;
+
+async function main() {
+    try {
+        await connectDB();
+        console.log('Mongodb connected successfully!');
+    } catch (err) {
+        console.error('Failed to connect to MongoDB:', err);
+        process.exit(1);
+    }
+}
+main();
 
 
 // api's
@@ -36,6 +47,9 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
 
+app.get('/', (req, res) => {
+    res.send('Server is running!');
+});
 
 app.listen(PORT,()=>{
     connectDB();
